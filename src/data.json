@@ -1,0 +1,136 @@
+{
+  "users": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 18,
+      "phoneNumber": "0606060606",
+      "address": "Paris"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "age": 12,
+      "phoneNumber": "0606060606",
+      "address": "Jura"
+    },
+    {
+      "firstName": "ulysse",
+      "lastName": "Doe",
+      "age": 15,
+      "phoneNumber": "0787878787",
+      "address": "Rennes"
+    },
+    {
+      "firstName": "Nathan",
+      "lastName": "Pierre",
+      "age": 25,
+      "phoneNumber": "0654545454",
+      "address": "Marseille"
+    },
+    {
+      "firstName": "Jean",
+      "lastName": "Doe",
+      "age": 20,
+      "phoneNumber": "0621478886",
+      "address": "Orléans"
+    }
+  ],
+  "pass": [
+    {
+      "level": 1
+    },
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4
+    },
+    {
+      "level": 5
+    }
+  ],
+  "places": [
+    {
+      "address": "1 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 1,
+      "require_age_level": 13
+    },
+    {
+      "address": "2 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 2,
+      "require_age_level": 14
+    },
+    {
+      "address": "3 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 3,
+      "require_age_level": 15
+    },
+    {
+      "address": "4 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 4,
+      "require_age_level": 16
+    },
+    {
+      "address": "5 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 5,
+      "require_age_level": 18
+    },
+    {
+      "address": "6 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 5,
+      "require_age_level": 18
+    },
+    {
+      "address": "7 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 5,
+      "require_age_level": 18
+    },
+    {
+      "address": "8 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 2,
+      "require_age_level": 14
+    },
+    {
+      "address": "9 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 3,
+      "require_age_level": 15
+    },
+    {
+      "address": "10 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 3,
+      "require_age_level": 15
+    },
+    {
+      "address": "11 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 5,
+      "require_age_level": 20
+    },
+    {
+      "address": "12 rue de la paix",
+      "phoneNumber": "06 06 06 06 06",
+      "require_pass_level": 5,
+      "require_age_level": 30
+    },
+    {
+      "address": "13 rue de la paix",
+      "phoneNumber": "0867676767",
+      "require_pass_level": 5,
+      "require_age_level": 22
+    }
+  ]
+}

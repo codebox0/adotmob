@@ -1,0 +1,291 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "REST API for Swagger Documentation",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/"
+    }
+  ],
+  "paths": {
+    "/interestPoint": {
+      "get": {
+        "tags": [
+          "UserEndpoints"
+        ],
+        "summary": "Get interestPoint",
+        "description": "Get interestPoint from the database.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "UserEndpoints"
+        ],
+        "summary": "Create interestPoint",
+        "description": "Create interestPoint in the database.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InterestPointSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InterestPointSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/initDatabase": {
+      "get": {
+        "tags": [
+          "InitDatabaseEndpoints"
+        ],
+        "summary": "Initialize the database",
+        "description": "Initialize the database with some data.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "InterestPointSchema": {
+        "description": "InterestPoint schema"
+      },
+      "UserSchema": {
+        "description": "User schema",
+        "required": [
+          "firstName",
+          "lastName",
+          "age",
+          "phoneNumber",
+          "address"
+        ],
+        "type": "object",
+        "properties": {
+          "pass_id": {
+            "type": "string",
+            "description": "ID of the pass",
+            "example": "5f9f1c9b0b9b9c0b5c1c1c1c"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z]+$",
+            "description": "First name of the user",
+            "default": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z]+$",
+            "description": "Last name of the user",
+            "default": "Doe"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 10,
+            "maximum": 150,
+            "description": "Age of the user",
+            "example": 18,
+            "default": 18
+          },
+          "phoneNumber": {
+            "type": "string",
+            "format": "phone",
+            "pattern": "^[0-9]{10}$",
+            "example": "0123456789",
+            "description": "Phone number of the user"
+          },
+          "address": {
+            "type": "string",
+            "example": "1 rue de la paix",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z0-9 ]+$",
+            "description": "Address of the user"
+          }
+        }
+      },
+      "CanAccessSchema": {
+        "description": "User schema",
+        "required": [
+          "userId",
+          "placeId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "ID of the user",
+            "example": "5f9f1c9b0b9b9c0b5c1c1c1c"
+          },
+          "placeId": {
+            "type": "string",
+            "description": "ID of the place",
+            "example": "5f9f1c9b0b9b9c0b5c1c1c1c"
+          }
+        }
+      },
+
+      "PassSchema": {
+        "description": "Pass schema",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "integer",
+            "example": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Level of the pass"
+          }
+        }
+      },
+      "PlaceSchema": {
+        "description": "Place schema",
+        "required": [
+          "address",
+          "phoneNumber",
+          "require_pass_level",
+          "require_age_level"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "example": "1 rue de la paix",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z0-9 ]+$",
+            "description": "Address of the place"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "format": "phone",
+            "pattern": "^[0-9]{10}$",
+            "example": "0123456789",
+            "description": "Phone number of the place"
+          },
+          "require_pass_level": {
+            "type": "integer",
+            "example": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Level of the pass required to enter the place"
+          },
+          "require_age_level": {
+            "type": "integer",
+            "example": 1,
+            "minimum": 1,
+            "maximum": 125,
+            "description": "Level of the age required to enter the place"
+          }
+        }
+      },
+      "TokenSchema": {
+        "description": "Token schema",
+        "required": [
+          "firstName",
+          "lastName"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z]+$",
+            "description": "First name of the user",
+            "default": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-zA-Z]+$",
+            "description": "Last name of the user",
+            "default": "Doe"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
