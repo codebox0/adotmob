@@ -1,7 +1,6 @@
 import bodyParser from 'body-parser';
 import express, { Request, Response, NextFunction } from 'express';
 import ApplicationError from './errors/application-error';
-import './middleware/jwt.middleware';
 import routes from './routes';
 import {readCSVFile} from './models/db'
 import {EventInput} from "./dtos/event";
@@ -15,12 +14,12 @@ app.set('port', process.env.PORT || 8080);
 
 let data: unknown = [];
 (async () => {
-   data  =  await readCSVFile();
-    // eventsData =  await readCSVFile();
-
-   console.log('eventsData --3g: ', data)
-
-    console.log('Connected to the database successfully!');
+//    // data  =  await readCSVFile();
+//     // eventsData =  await readCSVFile();
+//
+//    console.log('eventsData --3g: ', data)
+//
+//     console.log('Connected to the database successfully!');
 })();
 
 export const eventsData = data

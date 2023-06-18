@@ -9,7 +9,7 @@ const readCSVFile = async (): Promise<unknown> => {
     return  new Promise(async (resolve, reject) => {
         const csvFilePath = path.resolve('./src/data/events.csv')
         let result = {};
-        await fs.createReadStream(csvFilePath)
+        const events = await fs.createReadStream(csvFilePath)
             .pipe(csvParser())
             .on('data', (row) => {
 
@@ -34,15 +34,13 @@ const readCSVFile = async (): Promise<unknown> => {
                 resolve(result)
                 return result;
             });
+
+        const eventFilePath = path.resolve('./src/data/grouped-events.json')
+
+        fs.writeFile(eventFilePath, JSON.stringify(events) , 'utf8', ()=>{
+            console.log('grouped-events.json file created')});
         // resolve(result);
     });
-
-    // console.log('csvData --: ', csvData);
-    // console.log('csvData -- result: ', result);
-    // console.log('pointsOfInterest --: ', pointsOfInterest);
-    // return pointsOfInterest
-    // return eventsData
-    // return csvData
 };
 
 const readCSVFiler = async (pathFile: string) => {
